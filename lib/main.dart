@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Sizer(builder: (context, orientation, deviceType) {
       return MaterialApp(
-          title: 'Flutter Demo',
+          title: 'Flutter Qemana',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             elevatedButtonTheme: ElevatedButtonThemeData(
