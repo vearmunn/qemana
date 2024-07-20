@@ -250,7 +250,8 @@ class MapPage extends StatelessWidget {
                                                 'https://cdn.pixabay.com/photo/2016/11/29/12/54/cafe-1869656_1280.jpg',
                                                 fit: BoxFit.cover,
                                               ),
-                                              title: const Text('SugarBites'),
+                                              title: Text(
+                                                  'SugarBites ${index + 1}'),
                                               subtitle: const Text('From 50k'),
                                               trailing: Text(
                                                 '4.6',

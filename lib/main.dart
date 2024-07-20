@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:qemana/pages/auth/sign_in_page.dart';
+import 'package:qemana/pages/auth/splash_screen.dart';
 import 'package:qemana/pages/main_menu/primary_page.dart';
 import 'package:qemana/utils/colors.dart';
 import 'package:sizer/sizer.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() {
+import 'core/supabase_secret.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Supabase.initialize(
+      url: SupabaseSecret.supabaseUrl, anonKey: SupabaseSecret.anonKey);
   runApp(const MyApp());
 }
+
+final supabaseClient = Supabase.instance.client;
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -27,7 +37,7 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: mainColor),
             useMaterial3: false,
           ),
-          home: const PrimaryPage());
+          home: const SplashScreen());
     });
   }
 }

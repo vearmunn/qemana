@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qemana/pages/main_menu/map_page.dart';
+import 'package:qemana/pages/profile/profile_page.dart';
 
 import '../../utils/colors.dart';
 import '../../utils/spacer.dart';
@@ -23,9 +24,7 @@ class _PrimaryPageState extends State<PrimaryPage> {
       HomePage(),
       ExplorePage(),
       TripboardPage(),
-      Center(
-        child: Text('Profile'),
-      ),
+      ProfilePage(),
     ];
     return Scaffold(
       body: screens[selectedIndex],
