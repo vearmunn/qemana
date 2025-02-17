@@ -8,6 +8,7 @@ class CustomTextfield extends StatelessWidget {
     super.key,
     required this.hint,
     this.prefix,
+    this.suffix,
     required this.controller,
     this.label,
     this.inputType = TextInputType.text,
@@ -17,6 +18,7 @@ class CustomTextfield extends StatelessWidget {
 
   final String hint;
   final Widget? prefix;
+  final Widget? suffix;
   final TextEditingController controller;
   final String? label;
   final TextInputType inputType;
@@ -36,6 +38,7 @@ class CustomTextfield extends StatelessWidget {
             contentPadding:
                 const EdgeInsets.symmetric(vertical: 18, horizontal: 18),
             prefixIcon: prefix,
+            suffixIcon: suffix,
             hintText: hint,
             hintStyle: TextStyle(color: Colors.grey[400]!),
             focusedBorder: OutlineInputBorder(

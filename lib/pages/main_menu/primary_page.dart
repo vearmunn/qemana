@@ -1,12 +1,14 @@
+import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:qemana/pages/main_menu/map_page.dart';
 import 'package:qemana/pages/profile/profile_page.dart';
+import 'package:sizer/sizer.dart';
 
 import '../../utils/colors.dart';
 import '../../utils/spacer.dart';
 import '../../utils/texts.dart';
 import 'explore.dart';
-import 'home.dart';
+import 'home_v2.dart';
 import 'tripboard.dart';
 
 class PrimaryPage extends StatefulWidget {
@@ -23,60 +25,55 @@ class _PrimaryPageState extends State<PrimaryPage> {
     const screens = [
       HomePage(),
       ExplorePage(),
+      MapPage(),
       TripboardPage(),
       ProfilePage(),
     ];
     return Scaffold(
-      body: screens[selectedIndex],
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (_) => const MapPage()));
-        },
-        backgroundColor: mainColor,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(Icons.map_outlined),
-            Text(
-              'Map',
-              style: extraSmallText(color: Colors.white),
+      body: Stack(
+        children: [
+          screens[selectedIndex],
+          Positioned(
+            bottom: 0,
+            child: Container(
+              width: 100.w - 32,
+              decoration: BoxDecoration(
+                  color: Colors.black, borderRadius: BorderRadius.circular(20)),
+              padding: const EdgeInsets.all(24),
+              margin: const EdgeInsets.all(16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  bottomNavbarItem(
+                    imgUrl: 'home-04',
+                    text: 'Home',
+                    index: 0,
+                  ),
+                  bottomNavbarItem(
+                    imgUrl: 'favourite',
+                    text: 'Activity',
+                    index: 1,
+                  ),
+                  bottomNavbarItem(
+                    imgUrl: 'maps',
+                    text: 'Explore',
+                    index: 2,
+                  ),
+                  bottomNavbarItem(
+                    imgUrl: 'dashboard-square-add',
+                    text: 'Tripboard',
+                    index: 3,
+                  ),
+                  bottomNavbarItem(
+                    imgUrl: 'user',
+                    text: 'Profile',
+                    index: 4,
+                  ),
+                ],
+              ),
             ),
-          ],
-        ),
-      ),
-      bottomNavigationBar: BottomAppBar(
-        height: MediaQuery.of(context).size.height * 0.1,
-        notchMargin: 8,
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        shape: const CircularNotchedRectangle(),
-        color: Colors.white,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            bottomNavbarItem(
-              imgUrl: 'home',
-              text: 'Home',
-              index: 0,
-            ),
-            bottomNavbarItem(
-              imgUrl: 'search',
-              text: 'Search',
-              index: 1,
-            ),
-            bottomNavbarItem(
-              imgUrl: 'tripboard',
-              text: 'Tripboard',
-              index: 2,
-            ),
-            bottomNavbarItem(
-              imgUrl: 'user',
-              text: 'Profile',
-              index: 3,
-            ),
-          ],
-        ),
+          )
+        ],
       ),
     );
   }
@@ -94,15 +91,20 @@ class _PrimaryPageState extends State<PrimaryPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-              'assets/images/$imgUrl.png',
-              color: selectedIndex == index ? customBlack : Colors.grey,
-            ),
+            selectedIndex == index
+                ? Image.asset(
+                    'assets/images/$imgUrl.png',
+                  )
+                : Image.asset(
+                    'assets/images/$imgUrl.png',
+                    color: Colors.grey[900],
+                  ),
             verticalSpace(8),
             Text(
               text,
               style: extraSmallText(
-                  color: selectedIndex == index ? customBlack : Colors.grey),
+                  color:
+                      selectedIndex == index ? Colors.white : Colors.grey[800]),
             )
           ],
         ),

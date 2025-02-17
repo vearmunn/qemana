@@ -73,7 +73,7 @@ class _SignInPageState extends State<SignInPage> {
                   Image.asset('assets/images/Logo.png'),
                   Expanded(child: verticalSpace(0)),
                   Text(
-                    100.h <= 650 ? 'Account Login' : 'Account\nLogin',
+                    'Sign-In',
                     style: extraLargeText(size: 100.h <= 650 ? 32 : 36),
                   ),
                   Expanded(child: verticalSpace(0)),
@@ -97,8 +97,8 @@ class _SignInPageState extends State<SignInPage> {
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: loginUser,
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: customBlack),
+                      style:
+                          ElevatedButton.styleFrom(backgroundColor: mainColor),
                       child: const Text('Sign In'),
                     ),
                   ),

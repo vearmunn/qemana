@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:qemana/pages/auth/sign_in_page.dart';
 import 'package:qemana/pages/auth/splash_screen.dart';
 import 'package:qemana/pages/main_menu/primary_page.dart';
 import 'package:qemana/utils/colors.dart';

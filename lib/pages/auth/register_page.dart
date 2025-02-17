@@ -80,7 +80,7 @@ class _RegisterPageState extends State<RegisterPage> {
               Image.asset('assets/images/Logo.png'),
               verticalSpace(40),
               Text(
-                'Register\nUser',
+                'Sign-Up',
                 style: extraLargeText(size: 100.h <= 650 ? 32 : 36),
               ),
               const Spacer(),
@@ -112,7 +112,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: registerUser,
-                  style: ElevatedButton.styleFrom(backgroundColor: customBlack),
+                  style: ElevatedButton.styleFrom(backgroundColor: mainColor),
                   child: const Text('Register'),
                 ),
               ),
@@ -130,6 +130,47 @@ class _RegisterPageState extends State<RegisterPage> {
                     )),
               ),
               const Spacer(),
+              Row(
+                children: [
+                  const GreyLine(),
+                  horizontalSpace(8),
+                  Text(
+                    'OR',
+                    style: extraSmallText(
+                        color: customBlack, weight: FontWeight.bold),
+                  ),
+                  horizontalSpace(8),
+                  const GreyLine(),
+                ],
+              ),
+              verticalSpace(16),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton.icon(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.grey[300]),
+                  icon: Image.asset('assets/images/facebook.png'),
+                  label: const Text(
+                    'Continue with Facebook',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+              ),
+              verticalSpace(16),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton.icon(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.grey[300]),
+                  icon: Image.asset('assets/images/google.png'),
+                  label: const Text(
+                    'Continue with Google',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+              ),
             ],
           ),
         )),

@@ -10,6 +10,7 @@ class RoundedContainer extends StatelessWidget {
     this.useShadow = true,
     this.useBorder = false,
     this.borderRadius = 40,
+    this.borderColor = const Color.fromRGBO(224, 224, 224, 1),
   });
 
   final Widget child;
@@ -18,6 +19,7 @@ class RoundedContainer extends StatelessWidget {
   final bool useShadow;
   final bool useBorder;
   final double borderRadius;
+  final Color borderColor;
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +29,7 @@ class RoundedContainer extends StatelessWidget {
             color: color,
             borderRadius: BorderRadius.circular(borderRadius),
             border: Border.all(
-                color: useBorder ? Colors.grey[300]! : Colors.transparent,
-                width: 1),
+                color: useBorder ? borderColor : Colors.transparent, width: 1),
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.withOpacity(useShadow ? 0.1 : 0),

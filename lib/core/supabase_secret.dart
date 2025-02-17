@@ -1,8 +1,8 @@
 class SupabaseSecret {
-  static const supabaseUrl = 'https://nrcpeliomlpwzoayipqb.supabase.co';
+  static const supabaseUrl = 'https://wsqjxxceaiskwvzdemey.supabase.co';
   static const anonKey =
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5yY3BlbGlvbWxwd3pvYXlpcHFiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjE0NTIwMjUsImV4cCI6MjAzNzAyODAyNX0.TZa_sTrGFezGnChz8qeTLR4feR2XaA8bZavY5FvF1Is';
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndzcWp4eGNlYWlza3d2emRlbWV5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk3NTQ2MjUsImV4cCI6MjA1NTMzMDYyNX0.2PUQmr5gSFFb_ZPehmmUYGZHuRJRiQp9JG8EmoetZEU';
   static const serviceRoleKey =
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5yY3BlbGlvbWxwd3pvYXlpcHFiIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcyMTQ1MjAyNSwiZXhwIjoyMDM3MDI4MDI1fQ.lqaZwGOSeC6d9HNaYLx4HE6Nfn5qVmYDrPNCqPDJV9U';
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndzcWp4eGNlYWlza3d2emRlbWV5Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTczOTc1NDYyNSwiZXhwIjoyMDU1MzMwNjI1fQ.qxtl-v0qXuP36UDfsDpSma5oJeCgxX8FKD2dZgotrsA';
 }
-// password = IPtkvuXgs8LbJUoZ
+// password = aw7a6iYMJNkLZ2eG
