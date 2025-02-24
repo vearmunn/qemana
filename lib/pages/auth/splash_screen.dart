@@ -13,18 +13,18 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   Future _redirect() async {
-    await Future.delayed(Duration.zero);
-    final currentSession = supabaseClient.auth.currentSession;
+    // await Future.delayed(Duration.zero);
+    // final currentSession = supabaseClient.auth.currentSession;
 
-    if (!mounted) return;
+    // if (!mounted) return;
 
-    if (currentSession == null) {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (_) => const SignInPage()));
-    } else {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (_) => const PrimaryPage()));
-    }
+    // if (currentSession == null) {
+    //   Navigator.pushReplacement(
+    //       context, MaterialPageRoute(builder: (_) => const SignInPage()));
+    // } else {
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (_) => const PrimaryPage()));
+    // }
   }
 
   @override
