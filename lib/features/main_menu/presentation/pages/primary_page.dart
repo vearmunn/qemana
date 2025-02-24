@@ -1,12 +1,10 @@
-import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:qemana/pages/main_menu/map_page.dart';
-import 'package:qemana/pages/profile/profile_page.dart';
+import 'package:qemana/features/main_menu/presentation/pages/map_page.dart';
+import 'package:qemana/features/profile/profile_page.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../utils/colors.dart';
-import '../../utils/spacer.dart';
-import '../../utils/texts.dart';
+import '../../../../core/utils/spacer.dart';
+import '../../../../core/utils/texts.dart';
 import 'explore.dart';
 import 'home_v2.dart';
 import 'tripboard.dart';

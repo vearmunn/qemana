@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:qemana/utils/colors.dart';
+import 'package:qemana/core/utils/colors.dart';
 
 TextStyle extraLargeText(
     {double size = 32, color = customBlack, weight = FontWeight.bold}) {

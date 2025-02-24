@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:qemana/pages/auth/sign_in_page.dart';
+import 'package:qemana/features/auth/presentation/pages/sign_in_page.dart';
 import 'package:sizer/sizer.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-import '../../main.dart';
-import '../../utils/colors.dart';
-import '../../utils/custom_snackbar.dart';
-import '../../utils/loading_circle.dart';
-import '../../utils/spacer.dart';
-import '../../utils/texts.dart';
-import '../../widgets/custom_textfield.dart';
-import '../main_menu/primary_page.dart';
+import '../../../../main.dart';
+import '../../../../core/utils/colors.dart';
+import '../../../../core/utils/custom_snackbar.dart';
+import '../../../../core/utils/loading_circle.dart';
+import '../../../../core/utils/spacer.dart';
+import '../../../../widgets/custom_textfield.dart';
+import '../../../main_menu/presentation/pages/primary_page.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -66,8 +65,9 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
-      backgroundColor: backGroundColor,
+      backgroundColor: theme.colorScheme.surface,
       body: SafeArea(
         child: SingleChildScrollView(
             child: Container(
@@ -81,7 +81,7 @@ class _RegisterPageState extends State<RegisterPage> {
               verticalSpace(40),
               Text(
                 'Sign-Up',
-                style: extraLargeText(size: 100.h <= 650 ? 32 : 36),
+                style: theme.textTheme.displayLarge,
               ),
               const Spacer(),
               CustomTextfield(
@@ -126,7 +126,9 @@ class _RegisterPageState extends State<RegisterPage> {
                     },
                     child: Text(
                       "Already have an account? Sign In",
-                      style: smallText(color: mainColor),
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        color: theme.colorScheme.primary,
+                      ),
                     )),
               ),
               const Spacer(),
@@ -136,8 +138,9 @@ class _RegisterPageState extends State<RegisterPage> {
                   horizontalSpace(8),
                   Text(
                     'OR',
-                    style: extraSmallText(
-                        color: customBlack, weight: FontWeight.bold),
+                    style: theme.textTheme.labelSmall?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   horizontalSpace(8),
                   const GreyLine(),

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'dart:convert';
 
-import '../../utils/colors.dart';
-import '../../utils/spacer.dart';
-import '../../utils/texts.dart';
-import '../../widgets/place_item.dart';
-import '../../widgets/roundedContainer.dart';
+import '../../../../core/utils/colors.dart';
+import '../../../../core/utils/spacer.dart';
+import '../../../../core/utils/texts.dart';
+import '../../../../widgets/place_item.dart';
+import '../../../../widgets/roundedContainer.dart';
+import '../../../../core/models/place.dart';
 
 class ExplorePage extends StatelessWidget {
   const ExplorePage({super.key});
@@ -115,10 +117,32 @@ class ExplorePage extends StatelessWidget {
   }
 }
 
-class TabFnB extends StatelessWidget {
-  const TabFnB({
-    super.key,
-  });
+class TabFnB extends StatefulWidget {
+  const TabFnB({super.key});
+
+  @override
+  State<TabFnB> createState() => _TabFnBState();
+}
+
+class _TabFnBState extends State<TabFnB> {
+  List<Place> places = [];
+
+  @override
+  void initState() {
+    super.initState();
+    loadPlaces();
+  }
+
+  Future<void> loadPlaces() async {
+    final String response = await DefaultAssetBundle.of(context)
+        .loadString('assets/data/places.json');
+    final data = await json.decode(response);
+    setState(() {
+      places = (data['places'] as List)
+          .map((place) => Place.fromJson(place))
+          .toList();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -210,11 +234,11 @@ class TabFnB extends StatelessWidget {
         verticalSpace(8),
         ListView.builder(
           padding: const EdgeInsets.symmetric(horizontal: 20),
-          itemCount: 3,
+          itemCount: places.length,
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           itemBuilder: (BuildContext context, int index) {
-            return const PlaceItem();
+            return PlaceItem(place: places[index]);
           },
         ),
       ],

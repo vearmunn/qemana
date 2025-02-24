@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:qemana/pages/main_menu/primary_page.dart';
-
-import '../../main.dart';
-import 'sign_in_page.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -13,24 +10,25 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   Future _redirect() async {
-    // await Future.delayed(Duration.zero);
+    await Future.delayed(
+        const Duration(seconds: 2)); // Add a delay for splash screen
     // final currentSession = supabaseClient.auth.currentSession;
 
-    // if (!mounted) return;
+    if (!mounted) return;
 
     // if (currentSession == null) {
-    //   Navigator.pushReplacement(
-    //       context, MaterialPageRoute(builder: (_) => const SignInPage()));
+    //   context.go('/signin');
     // } else {
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (_) => const PrimaryPage()));
+    context.go('/primary');
     // }
   }
 
   @override
   void initState() {
-    _redirect();
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _redirect();
+    });
   }
 
   @override

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:qemana/pages/auth/sign_in_page.dart';
+import 'package:qemana/features/auth/presentation/pages/sign_in_page.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../main.dart';
-import '../../utils/loading_circle.dart';
+import '../../core/utils/loading_circle.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});

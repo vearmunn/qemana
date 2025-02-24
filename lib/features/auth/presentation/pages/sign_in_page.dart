@@ -1,18 +1,15 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:qemana/pages/auth/register_page.dart';
-import 'package:qemana/pages/main_menu/primary_page.dart';
+import 'package:qemana/features/auth/presentation/pages/register_page.dart';
+import 'package:qemana/features/main_menu/presentation/pages/primary_page.dart';
 
-import 'package:qemana/utils/colors.dart';
-import 'package:qemana/utils/spacer.dart';
-import 'package:qemana/utils/texts.dart';
+import 'package:qemana/core/utils/spacer.dart';
 import 'package:sizer/sizer.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-import '../../main.dart';
-import '../../utils/loading_circle.dart';
-import '../../widgets/custom_textfield.dart';
+import '../../../../main.dart';
+import '../../../../core/utils/loading_circle.dart';
+import '../../../../widgets/custom_textfield.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
@@ -59,8 +56,9 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
-      backgroundColor: backGroundColor,
+      backgroundColor: theme.colorScheme.surface,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
@@ -74,7 +72,7 @@ class _SignInPageState extends State<SignInPage> {
                   Expanded(child: verticalSpace(0)),
                   Text(
                     'Sign-In',
-                    style: extraLargeText(size: 100.h <= 650 ? 32 : 36),
+                    style: theme.textTheme.displayLarge,
                   ),
                   Expanded(child: verticalSpace(0)),
                   CustomTextfield(
@@ -97,8 +95,6 @@ class _SignInPageState extends State<SignInPage> {
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: loginUser,
-                      style:
-                          ElevatedButton.styleFrom(backgroundColor: mainColor),
                       child: const Text('Sign In'),
                     ),
                   ),
@@ -112,7 +108,9 @@ class _SignInPageState extends State<SignInPage> {
                         },
                         child: Text(
                           "Don't have an account? Register",
-                          style: smallText(color: mainColor),
+                          style: theme.textTheme.bodyMedium?.copyWith(
+                            color: theme.colorScheme.primary,
+                          ),
                         )),
                   ),
                   Expanded(child: verticalSpace(0)),
@@ -122,8 +120,9 @@ class _SignInPageState extends State<SignInPage> {
                       horizontalSpace(8),
                       Text(
                         'OR',
-                        style: extraSmallText(
-                            color: customBlack, weight: FontWeight.bold),
+                        style: theme.textTheme.labelSmall?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       horizontalSpace(8),
                       const GreyLine(),

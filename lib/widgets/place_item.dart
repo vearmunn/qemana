@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import '../core/models/place.dart';
 
-import '../utils/colors.dart';
-import '../utils/spacer.dart';
-import '../utils/texts.dart';
+import '../core/utils/colors.dart';
+import '../core/utils/spacer.dart';
+import '../core/utils/texts.dart';
 import 'roundedContainer.dart';
 
 class PlaceItem extends StatelessWidget {
+  final Place place;
+
   const PlaceItem({
     super.key,
+    required this.place,
   });
 
   @override
@@ -62,9 +66,11 @@ class PlaceItem extends StatelessWidget {
                     color: customLightGreen,
                     padding: 6,
                     child: Text(
-                      'OPEN',
+                      place.isOpen ? 'OPEN' : 'CLOSED',
                       style: smallText(
-                          color: Colors.green[600],
+                          color: place.isOpen
+                              ? Colors.green[600]
+                              : Colors.red[600],
                           size: 10,
                           weight: FontWeight.bold),
                     )),
@@ -76,7 +82,7 @@ class PlaceItem extends StatelessWidget {
                 horizontalSpace(5),
                 Expanded(
                   child: Text(
-                    '09 AM - 08 PM',
+                    place.openingHours,
                     style: smallText(color: Colors.grey),
                   ),
                 ),
@@ -90,7 +96,7 @@ class PlaceItem extends StatelessWidget {
                     ),
                     horizontalSpace(5),
                     Text(
-                      '4.6',
+                      place.rating.toString(),
                       style: largeText(size: 22, color: customBlack),
                     )
                   ],
@@ -109,7 +115,7 @@ class PlaceItem extends StatelessWidget {
                   ),
                   horizontalSpace(5),
                   Text(
-                    '0.3 km ke lokasi',
+                    '${place.distance} km ke lokasi',
                     style: smallText(),
                   ),
                 ],
@@ -128,7 +134,7 @@ class PlaceItem extends StatelessWidget {
                   ),
                   horizontalSpace(5),
                   Text(
-                    'Food and Beverages',
+                    place.category,
                     style: smallText(),
                   ),
                 ],
@@ -137,7 +143,7 @@ class PlaceItem extends StatelessWidget {
           ),
           verticalSpace(6),
           Text(
-            'Sugarbites Bake & Sweets',
+            place.name,
             style: largeText(size: 22),
           ),
           verticalSpace(30)
