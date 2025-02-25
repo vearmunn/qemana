@@ -6,6 +6,9 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'features/auth/data/datasources/auth_remote_datasource.dart';
 import 'features/auth/domain/repositories/auth_repository.dart';
 import 'features/auth/domain/usecases/login_usecase.dart';
+import 'features/auth/domain/usecases/signup_usecase.dart';
+import 'features/auth/domain/usecases/logout_usecase.dart';
+import 'features/auth/domain/usecases/check_session_usecase.dart';
 import 'features/auth/presentation/blocs/auth_cubit.dart';
 
 final sl = GetIt.instance;
@@ -24,9 +27,19 @@ Future<void> init() async {
   // Repository
   sl.registerLazySingleton<AuthRepository>(() => AuthRepositoryImpl(sl()));
 
-  // Use Case
+  // Use Cases
   sl.registerLazySingleton(() => LoginUseCase(sl()));
+  sl.registerLazySingleton(() => SignUpUseCase(sl()));
+  sl.registerLazySingleton(() => LogoutUseCase(sl()));
+  sl.registerLazySingleton(() => CheckSessionUseCase(sl()));
 
   // Bloc
-  sl.registerFactory(() => AuthCubit(sl()));
+  sl.registerFactory(
+    () => AuthCubit(
+      loginUseCase: sl(),
+      signUpUseCase: sl(),
+      logoutUseCase: sl(),
+      checkSessionUseCase: sl(),
+    ),
+  );
 }

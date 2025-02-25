@@ -14,7 +14,7 @@ class AppTheme {
   static ColorScheme lightColorScheme = const ColorScheme.light(
     primary: mainColor,
     secondary: customPurple,
-    surface: mainShade,
+    surface: Colors.white,
     onPrimary: Colors.white,
     onSecondary: Colors.white,
     onSurface: customBlack,

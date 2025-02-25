@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:qemana/features/auth/presentation/pages/sign_in_page.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:get_it/get_it.dart';
+import 'package:go_router/go_router.dart';
+import 'package:qemana/core/usecases/usecase.dart';
+import 'package:qemana/features/auth/domain/usecases/logout_usecase.dart';
 
-import '../../main.dart';
 import '../../core/utils/loading_circle.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -16,20 +17,25 @@ class _ProfilePageState extends State<ProfilePage> {
   void logoutUser() async {
     loadingCircle(context);
 
-    try {
-      await supabaseClient.auth.signOut();
-      if (!mounted) return;
-      Navigator.pop(context);
-      Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(builder: (_) => const SignInPage()),
-          (Route<dynamic> route) => false);
-    } on AuthException catch (e) {
-      Navigator.pop(context);
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          backgroundColor: Colors.redAccent, content: Text(e.message)));
-      print(e);
-    }
+    final logoutUseCase = GetIt.I<LogoutUseCase>();
+    final result = await logoutUseCase(const NoParams());
+
+    if (!mounted) return;
+    Navigator.pop(context); // Remove loading circle
+
+    result.fold(
+      (failure) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            backgroundColor: Colors.redAccent,
+            content: Text('Failed to logout'),
+          ),
+        );
+      },
+      (_) {
+        context.go('/signin');
+      },
+    );
   }
 
   @override

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:qemana/core/routes/router.dart';
 import 'package:qemana/core/theme/theme.dart';
 import 'package:sizer/sizer.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'injection.dart' as di;
@@ -13,8 +12,6 @@ void main() async {
   await di.init();
   runApp(const MyApp());
 }
-
-final supabaseClient = Supabase.instance.client;
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
