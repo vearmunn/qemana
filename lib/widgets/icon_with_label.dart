@@ -1,8 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
-import '../utils/colors.dart';
-import '../utils/spacer.dart';
+import '../core/utils/colors.dart';
+import '../core/utils/spacer.dart';
 import 'roundedContainer.dart';
 
 class IconWithLabel extends StatelessWidget {

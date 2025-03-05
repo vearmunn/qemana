@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:image_collage/image_collage.dart';
-import 'package:qemana/utils/colors.dart';
+import 'package:qemana/core/utils/colors.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../utils/spacer.dart';
-import '../../utils/texts.dart';
-import '../../widgets/roundedContainer.dart';
+import '../../../../core/utils/spacer.dart';
+import '../../../../core/utils/texts.dart';
+import '../../../../widgets/roundedContainer.dart';
 
 class TripboardPage extends StatelessWidget {
   const TripboardPage({super.key});

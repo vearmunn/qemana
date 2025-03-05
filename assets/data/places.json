@@ -1,0 +1,28 @@
+{
+    "places": [
+        {
+            "name": "Sugarbites Bake & Sweets",
+            "openingHours": "09 AM - 08 PM",
+            "isOpen": true,
+            "rating": 4.6,
+            "distance": 0.3,
+            "category": "Food and Beverages"
+        },
+        {
+            "name": "Coffee Haven",
+            "openingHours": "07 AM - 11 PM",
+            "isOpen": true,
+            "rating": 4.8,
+            "distance": 0.5,
+            "category": "Food and Beverages"
+        },
+        {
+            "name": "Spice Garden",
+            "openingHours": "10 AM - 10 PM",
+            "isOpen": false,
+            "rating": 4.3,
+            "distance": 0.7,
+            "category": "Food and Beverages"
+        }
+    ]
+}

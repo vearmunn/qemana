@@ -6,10 +6,10 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../utils/colors.dart';
-import '../../utils/spacer.dart';
-import '../../utils/texts.dart';
-import '../../widgets/roundedContainer.dart';
+import '../../../../core/utils/colors.dart';
+import '../../../../core/utils/spacer.dart';
+import '../../../../core/utils/texts.dart';
+import '../../../../widgets/roundedContainer.dart';
 
 class MapPage extends StatelessWidget {
   const MapPage({super.key});
