@@ -2,12 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:qemana/core/routes/router.dart';
 import 'package:qemana/features/auth/presentation/blocs/auth_state.dart';
 import 'package:qemana/core/utils/spacer.dart';
 import 'package:qemana/features/auth/presentation/blocs/auth_cubit.dart';
-import 'package:qemana/features/auth/presentation/pages/register_page.dart';
-import 'package:qemana/features/main_menu/presentation/pages/primary_page.dart';
 import 'package:qemana/widgets/custom_textfield.dart';
 import 'package:sizer/sizer.dart';
 
