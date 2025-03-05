@@ -40,7 +40,6 @@ dependencies:
   flutter_map: ^6.1.0
   latlong2: ^0.9.1
   supabase_flutter: ^2.5.3
-  floating_bottom_navigation_bar:
   flutter_bloc: ^9.0.0
   get_it: ^8.0.3
   go_router: ^10.1.0
