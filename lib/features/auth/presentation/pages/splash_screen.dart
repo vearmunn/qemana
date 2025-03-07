@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
     if (!mounted) return;
 
     if (!hasSession) {
-      context.go('/signin');
+      context.go('/onboard');
     } else {
       context.go('/primary');
     }
